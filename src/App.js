@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 
 import Timer from './Timer'
+import Buttons from './Buttons'
 
 class App extends Component {
   constructor (props) {
@@ -11,6 +12,7 @@ class App extends Component {
       intervalId: null,
       time: 0
     }
+    this.setTimer = this.setTimer.bind(this)
   }
   setTimer (time = 0) {
     clearInterval(this.state.intervalId)
@@ -34,11 +36,9 @@ class App extends Component {
           <img src={logo} className='App-logo' alt='logo' />
           <h2>Welcome to React Timer!</h2>
         </div>
-        <p className='App-intro'>
-          <button onClick={() => this.setTimer(5)} className='five'>5 Seconds</button>
-          <button onClick={() => this.setTimer(10)} className='ten'>10 Seconds</button>
-          <button onClick={() => this.setTimer(15)} className='fiftheen'>15 Seconds</button>
-        </p>
+        <div className='App-intro'>
+          <Buttons handleClick={this.setTimer} />
+        </div>
         <Timer time={this.state.time} />
       </div>
     )
