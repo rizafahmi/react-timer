@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
+import Timer from './Timer'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -37,7 +39,7 @@ class App extends Component {
           <button onClick={() => this.setTimer(10)} className='ten'>10 Seconds</button>
           <button onClick={() => this.setTimer(15)} className='fiftheen'>15 Seconds</button>
         </p>
-        <h2>Time Left: {this.state.time} </h2>
+        <Timer time={this.state.time} />
       </div>
     )
   }
